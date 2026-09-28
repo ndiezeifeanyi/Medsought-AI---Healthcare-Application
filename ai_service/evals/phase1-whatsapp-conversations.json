@@ -1,0 +1,77 @@
+[
+  {
+    "id": "eval-001",
+    "language": "en",
+    "messages": ["Where can I find Augmentin?"],
+    "expected_intent": "medicine_search",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-002",
+    "language": "en",
+    "messages": ["What are the side effects of Paracetamol?"],
+    "expected_intent": "side_effects",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-003",
+    "language": "en",
+    "messages": ["Can I take Drug A with Drug B?"],
+    "expected_intent": "drug_interaction",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-004",
+    "language": "ha",
+    "messages": ["I've taken it."],
+    "expected_intent": "reminder_response",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-005",
+    "language": "yo",
+    "messages": ["Remind me later."],
+    "expected_intent": "reminder_response",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-006",
+    "language": "ig",
+    "messages": ["I need a refill."],
+    "expected_intent": "reminder_response",
+    "phase": "foundation"
+  },
+  {
+    "id": "eval-007",
+    "language": "en",
+    "messages": ["Tell me about AlphaMed."],
+    "expected_intent": "drug_information",
+    "phase": "drug-information",
+    "fixture_only": true
+  },
+  {
+    "id": "eval-008",
+    "language": "en",
+    "messages": ["What are the side effects of AlphaMed?"],
+    "expected_intent": "side_effects",
+    "phase": "drug-information",
+    "fixture_only": true
+  },
+  {
+    "id": "eval-009",
+    "language": "en",
+    "messages": ["Can I take AlphaMed with BetaMed?"],
+    "expected_intent": "drug_interaction",
+    "phase": "drug-interactions-side-effects",
+    "fixture_only": true
+  },
+  {
+    "id": "eval-010",
+    "language": "en",
+    "messages": ["What are AlphaMed contraindications?"],
+    "expected_intent": "drug_information",
+    "expected_topics": ["contraindications"],
+    "phase": "drug-interactions-side-effects",
+    "fixture_only": true
+  }
+]

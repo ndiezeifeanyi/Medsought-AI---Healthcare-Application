@@ -1,0 +1,98 @@
+[
+  {
+    "id": "e1",
+    "request": {
+      "conversation_id": "eval-1",
+      "user_id": "u1",
+      "message": "Where can I find Augmentin?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "medicine_search",
+      "medicine": "Augmentin"
+    }
+  },
+  {
+    "id": "e2",
+    "request": {
+      "conversation_id": "eval-2",
+      "user_id": "u2",
+      "message": "Tell me about AlphaMed.",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "drug_information",
+      "medicine": "AlphaMed"
+    }
+  },
+  {
+    "id": "e3",
+    "request": {
+      "conversation_id": "eval-3",
+      "user_id": "u3",
+      "message": "Can I take AlphaMed with BetaMed?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "drug_interaction",
+      "medicines": [
+        "AlphaMed",
+        "BetaMed"
+      ]
+    }
+  },
+  {
+    "id": "e4",
+    "request": {
+      "conversation_id": "eval-4",
+      "user_id": "u4",
+      "message": "I've taken it.",
+      "message_type": "text",
+      "language": "en",
+      "context": {
+        "current_medicine": "Paracetamol"
+      }
+    },
+    "expected": {
+      "intent": "reminder_response",
+      "event": "taken"
+    }
+  },
+  {
+    "id": "e5",
+    "request": {
+      "conversation_id": "eval-5",
+      "user_id": "u5",
+      "message": "Nibo ni MO ti le ri Augmentin?",
+      "message_type": "text",
+      "language": "yo",
+      "context": {}
+    },
+    "expected": {
+      "intent": "medicine_search",
+      "medicine": "Augmentin"
+    }
+  },
+  {
+    "id": "e6",
+    "request": {
+      "conversation_id": "eval-6",
+      "user_id": "u6",
+      "message": "What are the side effects of NoDataMed?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "side_effects",
+      "medicine": "NoDataMed",
+      "safety_blocked": true
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "supported_languages": ["en", "ha", "yo", "ig"],
+  "rag": {
+    "enabled": true,
+    "required": true,
+    "relevance_threshold": 0.7
+  },
+  "mongodb": {
+    "database": "medsought",
+    "collection": "knowledge_chunks"
+  },
+  "timeouts": {
+    "llm_ms": 10000,
+    "drug_info_ms": 10000,
+    "translation_ms": 10000
+  },
+  "safety": {
+    "disclaimer_text": "Disclaimer; Educational only. Not medical advice.",
+    "require_disclaimer_for_medical_content": true,
+    "emergency_escalation_rules_enabled": false
+  }
+}

@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: MedSought AI Layer API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/v1/ai/chat:
+    post:
+      summary: Chat endpoint for backend to call into AI pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, conversationId, message]
+              properties:
+                userId:
+                  type: string
+                conversationId:
+                  type: string
+                message:
+                  type: string
+                language:
+                  type: string
+                messageType:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  intent:
+                    type: string
+                  urgency:
+                    type: string
+                    enum: [low, medium, high]
+                  pharmacistConsultationRequired:
+                    type: boolean
+        '400':
+          description: Bad Request
+        '502':
+          description: Processing Error

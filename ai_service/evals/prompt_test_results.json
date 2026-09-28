@@ -1,0 +1,221 @@
+[
+  {
+    "id": "e1",
+    "request": {
+      "conversation_id": "eval-1",
+      "user_id": "u1",
+      "message": "Where can I find Augmentin?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "medicine_search",
+      "medicine": "Augmentin"
+    },
+    "response": {
+      "response": "I can help with that search. I'll return a structured search intent for the backend to execute.",
+      "intent": "medicine_search",
+      "language": "en",
+      "actions": [
+        {
+          "type": "medicine_search",
+          "payload": {
+            "medicine": "Augmentin"
+          }
+        }
+      ],
+      "safety_status": "passed",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.55,
+        "errors": []
+      }
+    }
+  },
+  {
+    "id": "e2",
+    "request": {
+      "conversation_id": "eval-2",
+      "user_id": "u2",
+      "message": "Tell me about AlphaMed.",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "drug_information",
+      "medicine": "AlphaMed"
+    },
+    "response": {
+      "response": "I do not have enough approved medical information to answer that safely.\n\nDisclaimer; Educational only. Not medical advice.",
+      "intent": "drug_information",
+      "language": "en",
+      "actions": [],
+      "safety_status": "blocked",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.5,
+        "errors": [
+          {
+            "code": "UNKNOWN_MEDICINE",
+            "message": "The medicine was not found in the approved drug-information source.",
+            "retryable": false,
+            "details": {
+              "input": "AlphaMed",
+              "candidates": []
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e3",
+    "request": {
+      "conversation_id": "eval-3",
+      "user_id": "u3",
+      "message": "Can I take AlphaMed with BetaMed?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "drug_interaction",
+      "medicines": [
+        "AlphaMed",
+        "BetaMed"
+      ]
+    },
+    "response": {
+      "response": "I do not have enough approved medical information to answer that safely.\n\nDisclaimer; Educational only. Not medical advice.",
+      "intent": "drug_interaction",
+      "language": "en",
+      "actions": [],
+      "safety_status": "blocked",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.55,
+        "errors": [
+          {
+            "code": "UNKNOWN_MEDICINE",
+            "message": "One or more medicines were not found in the approved drug-information source.",
+            "retryable": false,
+            "details": {
+              "input": "AlphaMed",
+              "candidates": []
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e4",
+    "request": {
+      "conversation_id": "eval-4",
+      "user_id": "u4",
+      "message": "I've taken it.",
+      "message_type": "text",
+      "language": "en",
+      "context": {
+        "current_medicine": "Paracetamol"
+      }
+    },
+    "expected": {
+      "intent": "reminder_response",
+      "event": "taken"
+    },
+    "response": {
+      "response": "Acknowledged.",
+      "intent": "reminder_response",
+      "language": "en",
+      "actions": [
+        {
+          "type": "reminder_event",
+          "payload": {
+            "event": "taken"
+          }
+        }
+      ],
+      "safety_status": "passed",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.75,
+        "errors": []
+      }
+    }
+  },
+  {
+    "id": "e5",
+    "request": {
+      "conversation_id": "eval-5",
+      "user_id": "u5",
+      "message": "Nibo ni MO ti le ri Augmentin?",
+      "message_type": "text",
+      "language": "yo",
+      "context": {}
+    },
+    "expected": {
+      "intent": "medicine_search",
+      "medicine": "Augmentin"
+    },
+    "response": {
+      "response": "I can help with that search. I'll return a structured search intent for the backend to execute. [translated->yo]",
+      "intent": "medicine_search",
+      "language": "yo",
+      "actions": [
+        {
+          "type": "medicine_search",
+          "payload": {
+            "medicine": "Augmentin"
+          }
+        }
+      ],
+      "safety_status": "passed",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.5,
+        "errors": []
+      }
+    }
+  },
+  {
+    "id": "e6",
+    "request": {
+      "conversation_id": "eval-6",
+      "user_id": "u6",
+      "message": "What are the side effects of NoDataMed?",
+      "message_type": "text",
+      "language": "en",
+      "context": {}
+    },
+    "expected": {
+      "intent": "side_effects",
+      "medicine": "NoDataMed",
+      "safety_blocked": true
+    },
+    "response": {
+      "response": "I do not have enough approved medical information to answer that safely.\n\nDisclaimer; Educational only. Not medical advice.",
+      "intent": "side_effects",
+      "language": "en",
+      "actions": [],
+      "safety_status": "blocked",
+      "metadata": {
+        "knowledge_source": null,
+        "confidence": 0.55,
+        "errors": [
+          {
+            "code": "UNKNOWN_MEDICINE",
+            "message": "The medicine was not found in the approved drug-information source.",
+            "retryable": false,
+            "details": {
+              "input": "NoDataMed",
+              "candidates": []
+            }
+          }
+        ]
+      }
+    }
+  }
+]
